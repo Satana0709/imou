@@ -7,24 +7,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: kivy/buildozer:latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-
-      - name: Install dependencies
+      - name: Fix workspace permissions
         run: |
-          sudo apt-get update
-          sudo apt-get install -s build-essential git libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-pip autoconf libtool pkg-config zlib1g-dev
-          pip install --upgrade pip
-          pip install buildozer Cython==0.29.36
-
-      - name: Clean Buildozer cache
-        run: |
-          buildozer appclean || true
+          chown -R 1000:1000 .
 
       - name: Build with Buildozer
         run: |
