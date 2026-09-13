@@ -17,6 +17,8 @@ jobs:
           chown -R 1000:1000 .
 
       - name: Build with Buildozer
+        env:
+          ALLOW_ROOT: "1"
         run: |
           buildozer -v android debug
 
