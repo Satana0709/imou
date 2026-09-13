@@ -18,6 +18,7 @@ jobs:
 
       - name: Build with Buildozer
         run: |
+          echo "y" | buildozer appclean
           echo "y" | buildozer -v android debug
 
       - name: Upload APK Artifact
