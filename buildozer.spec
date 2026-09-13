@@ -13,7 +13,7 @@ android.permissions = INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,FORE
 android.api = 31
 android.min_api = 21
 android.sdk = 31
-android.ndk = 23b
+android.ndk = 27b
 android.accept_sdk_license = True
 android.archs = arm64-v8a
 
